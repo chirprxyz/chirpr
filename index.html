@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="chirpr - the next generation social platform. connect with real people, share authentic moments, and discover people that inspire you.">
+    <meta name="keywords" content="chirpr, social media, social network, conversation, community, platform, AI feed, messaging">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="chirpr">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chirpr.xyz/">
+    <meta property="og:title" content="chirpr - where voices matter">
+    <meta property="og:description" content="the next generation social platform. connect with real people, share authentic moments, and discover people that inspire you.">
+    <meta property="og:image" content="https://chirpr.xyz/images/og-image.jpg">
+  
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://chirpr.xyz/">
+    <meta property="twitter:title" content="chirpr - where voices matter">
+    <meta property="twitter:description" content="the next generation social platform. connect with real people, share authentic moments, and discover people that inspire you.">
+    <meta property="twitter:image" content="https://chirpr.xyz/images/twitter-image.jpg">
+    <link rel="canonical" href="https://chirpr.xyz/">
+   
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <title>chirpr - where voices matter | The next generation social platform</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "chirpr",
+      "url": "https://chirpr.xyz",
+      "logo": "https://chirpr.xyz/logo.png",
+      "sameAs": [
+        "https://x.com/chirprdotxyz",
+        "https://x.com/chirprdotxyz",
+        "https://x.com/chirprdotxyz"
+      ],
+      "description": "the next generation social platform. connect with real people, share authentic moments, and discover people that inspire you.",
+      "potentialAction": {
+        "@type": "FollowAction",
+        "target": "https://x.com/chirprdotxyz"
+      }
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '475px',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Satoshi', sans-serif;
+            background-color: #000000;
+            color: #d1d5db;
+            overflow-x: hidden; 
+            scroll-behavior: smooth;
+        }
+        
+        .font-clash {
+            font-family: 'Clash Display', sans-serif;
+        }
+
+        .animated-grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+            background-size: 4rem 4rem;
+            animation: move-grid 40s linear infinite;
+            mask-image: radial-gradient(ellipse 100% 60% at 50% 50%, black, transparent 75%);
+            transition: transform 0.2s ease-out, mask-image 0.3s ease-out, -webkit-mask-image 0.3s ease-out;
+            will-change: transform, mask-image, -webkit-mask-image;
+        }
+
+        @keyframes move-grid {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -4rem -4rem;
+            }
+        }
+
+        .fade-in {
+            animation: fadeInAnimation 1s 0.2s ease-in-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+      
+        .main-heading {
+            font-family: 'Clash Display', sans-serif;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+
+        @media (min-width:1024px){
+            .main-heading{
+                animation: heroGlow 6s ease-in-out infinite alternate;
+            }
+        }
+        @keyframes heroGlow{
+            from{ text-shadow:0 0 12px rgba(255,255,255,.15); }
+            to  { text-shadow:0 0 28px rgba(59,130,246,.45);}
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            from {
+                text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+            }
+        }
+
+        .chirp-card {
+            background-color: rgba(17, 24, 39, 0.5);
+            border: 1px solid #374151; 
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            transform: translateY(0) scale(1);
+        }
+        
+        .chirp-card:hover {
+            border-color: #525c6a; 
+            transform: translateY(-6px) scale(1.015);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2), 0 8px 10px -6px rgba(0,0,0,0.2);
+        }
+        
+        .avatar-placeholder {
+            background-color: #374151; 
+        }
+        
+        .action-icon {
+            transition: all 0.2s ease;
+        }
+        
+        .action-icon:hover {
+            color: #60a5fa; 
+            transform: scale(1.2);
+        }
+
+        .feature-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .group:hover .feature-icon {
+            transform: rotate(8deg) scale(1.1);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .animate-on-scroll.fade-in-up {
+            transform: translateY(30px);
+        }
+        
+        .animate-on-scroll.fade-in-left {
+            transform: translateX(-30px);
+        }
+        
+        .animate-on-scroll.fade-in-right {
+            transform: translateX(30px);
+        }
+        
+        .animate-on-scroll.zoom-in {
+            transform: scale(0.9);
+        }
+        
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0) scale(1);
+        }
+  
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+        .delay-600 { transition-delay: 600ms; }
+        .delay-700 { transition-delay: 700ms; }
+        
+        .btn-glow:hover {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .animate-on-scroll,
+            .pulse-glow,
+            .floating,
+            .main-heading,
+            .chirp-card,
+            .feature-icon {
+                animation: none;
+                transition: none;
+                transform: none;
+            }
+        }
+
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="animated-grid-bg" id="interactive-bg"></div>
+
+    <div class="relative z-10 min-h-screen flex flex-col justify-center items-center text-center p-4">
+        
+        <header class="absolute top-0 left-0 right-0 py-6 px-4 sm:px-6 lg:px-8" role="banner">
+            <div class="max-w-7xl mx-auto">
+                <nav class="flex justify-end" aria-label="main-navigation">
+                </nav>
+            </div>
+        </header>
+
+        <main class="flex-grow flex flex-col justify-center items-center px-2 sm:px-4">
+            <div class="max-w-7xl mx-auto w-full">
+                                <section class="text-center mb-10 sm:mb-16 animate-on-scroll fade-in-up delay-100" aria-labelledby="main-heading">
+                    <h1 id="main-heading" class="main-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight mb-4 sm:mb-6 px-4 hover:scale-105 transition-transform duration-500">
+                        chirpr
+                </h1>
+                     <div class="px-4">
+                         <p class="font-clash text-lg sm:text-xl md:text-2xl text-blue-400 font-medium mb-6 sm:mb-8 pulse-glow hover:text-white hover:text-shadow-xl transition-all duration-300 cursor-default">
+                             where voices matter
+                         </p>
+                         <p class="text-base sm:text-lg text-gray-400 max-w-sm sm:max-w-md md:max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed hover:text-gray-300 transition-colors duration-300">
+                             the next generation social platform. connect with real people, share authentic moments, and discover people that inspire you. powered by smart algorithms that actually understand what you care about.
+                         </p>
+                     </div>
+                </section>
+                <div>
+                    
+                    <section aria-labelledby="features-heading" class="mb-10 sm:mb-16">
+                        <h2 id="features-heading" class="sr-only">Key Features</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
+                        <div class="animate-on-scroll fade-in-up delay-200 text-center p-4 sm:p-6 border border-gray-800 rounded-lg bg-gray-900/30 backdrop-blur-sm hover:bg-gray-900/50 hover:border-gray-700 transition-all duration-300 group">
+                            <div class="feature-icon h-10 w-10 mx-auto flex items-center justify-center mb-4 text-blue-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true" role="img">
+                                    <title>Smart Feed Icon</title>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624L16.5 21.75l-.398-1.126a3.375 3.375 0 00-2.924-2.924l-1.126-.398 1.126-.398a3.375 3.375 0 002.924-2.924l.398-1.126.398 1.126a3.375 3.375 0 002.924 2.924l1.126.398-1.126.398a3.375 3.375 0 00-2.924 2.924z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-clash text-white font-semibold mb-2 text-base sm:text-lg group-hover:text-blue-400 transition-colors duration-300">smart feed</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm group-hover:text-gray-300 transition-colors duration-300">ai-powered timeline that learns what you love</p>
+                        </div>
+                        <div class="animate-on-scroll fade-in-left delay-300 text-center p-4 sm:p-6 border border-gray-800 rounded-lg bg-gray-900/30 backdrop-blur-sm hover:bg-gray-900/50 hover:border-gray-700 transition-all duration-300 group">
+                            <div class="feature-icon h-10 w-10 mx-auto flex items-center justify-center mb-4 text-blue-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true" role="img">
+                                    <title>Chat Icon</title>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.068.158 2.222.26 3.398.26h.001I9 17.25c.468 0 .92.03 1.354.088 1.542.205 3.238.354 5.002.354 1.636 0 3.193-.126 4.633-.354.422-.058.835-.088 1.22-.088h.001c2.146 0 3.963-1.609 3.963-3.934 0-1.636-1.123-2.994-2.707-3.227A49.155 49.155 0 0015.75 9.75c-1.068-.158-2.222-.26-3.398-.26h-.001a48.816 48.816 0 00-5.002-.354c-1.636 0-3.193.126-4.633.354A3.87 3.87 0 001.5 9.75c0 2.325 1.816 4.224 3.963 4.224z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-clash text-white font-semibold mb-2 text-base sm:text-lg group-hover:text-blue-400 transition-colors duration-300">real-time interactions</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm group-hover:text-gray-300 transition-colors duration-300">instant interactions with your network</p>
+                        </div>
+                        <div class="animate-on-scroll fade-in-right delay-400 text-center p-4 sm:p-6 border border-gray-800 rounded-lg bg-gray-900/30 backdrop-blur-sm hover:bg-gray-900/50 hover:border-gray-700 transition-all duration-300 group sm:col-span-2 lg:col-span-1">
+                            <div class="feature-icon h-10 w-10 mx-auto flex items-center justify-center mb-4 text-blue-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true" role="img">
+                                    <title>Communities Icon</title>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c.502 0 1.004-.028 1.5-.082M12 21V3m0 18c-5.022 0-9-4.028-9-9s4.022-9 9-9 9 4.028 9 9-4.022 9-9 9zm0-18c.502 0 1.004.028 1.5.082M3 12a9.004 9.004 0 0115.632-4.243m-12.373 0c.069.055.138.11.209.166m12.164 0A9.004 9.004 0 0112 3c-2.432 0-4.685.966-6.312 2.569" />
+                                </svg>
+                            </div>
+                            <h3 class="font-clash text-white font-semibold mb-2 text-base sm:text-lg group-hover:text-blue-400 transition-colors duration-300">discover</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm group-hover:text-gray-300 transition-colors duration-300">find your nest based on interests and vibes</p>
+                        </div>
+                    </div>
+                    </section>
+
+                    <section aria-labelledby="principles-heading" class="text-center mb-12 sm:mb-20">
+                        <h2 id="principles-heading" class="font-clash text-3xl sm:text-4xl font-semibold text-white mb-4 animate-on-scroll fade-in-up delay-100">our core principles</h2>
+                        <p class="text-gray-400 max-w-2xl mx-auto mb-10 sm:mb-12 animate-on-scroll fade-in-up delay-200">we're building chirpr on a foundation of transparency, user empowerment, and authentic connection.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                            <div class="group border border-gray-800 p-8 rounded-lg text-left animate-on-scroll fade-in-left delay-300 hover:border-blue-500 hover:bg-gray-900/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/20">
+                                <h3 class="font-clash text-xl font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">your feed, your rules</h3>
+                                <p class="text-gray-400">our smart algorithm learns from you, but you always have the final say. easily tune, filter, and customize your feed to see what truly matters to you.</p>
+                            </div>
+                            <div class="border border-gray-800 p-8 rounded-lg text-left animate-on-scroll zoom-in delay-400 hover:border-blue-500 hover:bg-gray-900/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/20">
+                                <h3 class="font-clash text-xl font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">privacy by design</h3>
+                                <p class="text-gray-400">we believe your data is yours. we'll never sell it, and we're committed to building tools that give you full control over your privacy and digital footprint.</p>
+                            </div>
+                            <div class="border border-gray-800 p-8 rounded-lg text-left animate-on-scroll fade-in-right delay-500 hover:border-blue-500 hover:bg-gray-900/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/20">
+                                <h3 class="font-clash text-xl font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">authentic engagement</h3>
+                                <p class="text-gray-400">we're designing a platform that rewards quality conversations and discourages spam and bots, creating a space for more meaningful interactions.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section aria-labelledby="testimonials-heading" class="max-w-4xl lg:max-w-5xl mx-auto mb-12 sm:mb-20">
+                        <h2 id="testimonials-heading" class="sr-only">User Testimonials</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
+                            <div class="space-y-8">
+                                <div class="chirp-card rounded-xl p-5 text-left animate-on-scroll fade-in-up delay-100">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="w-10 h-10 rounded-full avatar-placeholder hover:bg-blue-700 hover:scale-110 transition-all duration-300"></div>
+                                        <div>
+                                            <p class="font-bold text-white hover:text-blue-400 transition-colors cursor-pointer">dev_guru</p>
+                                            <p class="text-sm text-gray-500 hover:text-blue-300 transition-colors cursor-pointer">@guru_codes</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300">Just saw the new chirpr landing page... this is the aesthetic I've been waiting for in a social app. Clean, fast, and no BS. Count me in.</p>
+                                    <div class="flex justify-between items-center mt-4 text-gray-500">
+                                        <div class="flex gap-4">
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg> 23</span>
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M4 20L20 4"></path></svg> 12</span>
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg> 157</span>
+                                        </div>
+                                        <svg class="w-4 h-4 action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                    </div>
+                                </div>
+                                <div class="chirp-card rounded-xl p-5 text-left animate-on-scroll fade-in-left delay-300 floating">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="w-10 h-10 rounded-full avatar-placeholder hover:bg-blue-700 hover:scale-110 transition-all duration-300"></div>
+                                        <div>
+                                            <p class="font-bold text-white">novaxx</p>
+                                            <p class="text-sm text-gray-500">@nova</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300">Finally, a platform that prioritizes discovery. The community-finding algorithm on chirpr sounds like a game-changer. Ready to find my tribe.</p>
+                                    <div class="flex justify-between items-center mt-4 text-gray-500">
+                                        <div class="flex gap-4">
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg> 8</span>
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M4 20L20 4"></path></svg> 5</span>
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg> 98</span>
+                                        </div>
+                                        <svg class="w-4 h-4 action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-8 md:pt-16">
+                                <div class="chirp-card rounded-xl p-5 text-left animate-on-scroll fade-in-right delay-200">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="w-10 h-10 rounded-full avatar-placeholder hover:bg-blue-700 hover:scale-110 transition-all duration-300"></div>
+                                        <div>
+                                            <p class="font-bold text-white">ken</p>
+                                            <p class="text-sm text-gray-500">@kento</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300 mb-4">a smart feed which i can customize whenever? Sign me up. This is exactly what the social space needs right now. Excited to see how this evolves.</p>
+                                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border border-gray-700">
+                                        <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632" alt="Crypto Chart" class="object-cover">
+                                    </div>
+                                    <div class="flex justify-between items-center mt-4 text-gray-500">
+                                        <div class="flex gap-4">
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg> 42</span>
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M4 20L20 4"></path></svg> 29</span>
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg> 310</span>
+                                        </div>
+                                        <svg class="w-4 h-4 action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                    </div>
+                                </div>
+                                 <div class="chirp-card rounded-xl p-5 text-left animate-on-scroll zoom-in delay-400 floating">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="w-10 h-10 rounded-full avatar-placeholder hover:bg-blue-700 hover:scale-110 transition-all duration-300"></div>
+                                        <div>
+                                            <p class="font-bold text-white">gamer_x</p>
+                                            <p class="text-sm text-gray-500">@a1pha_player</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300">If the latency is as low as they claim, chirpr could be huge for gaming communities. Following closely.</p>
+                                    <div class="flex justify-between items-center mt-4 text-gray-500">
+                                        <div class="flex gap-4">
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg> 55</span>
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M4 20L20 4"></path></svg> 19</span>
+                                            <span class="action-icon flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg> 231</span>
+                                        </div>
+                                        <svg class="w-4 h-4 action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section aria-labelledby="cta-heading" class="max-w-4xl mx-auto text-center animate-on-scroll zoom-in delay-300">
+                         <h2 id="cta-heading" class="font-clash text-3xl sm:text-4xl md:text-5xl font-semibold text-white mb-6">ready to join the conversation?</h2>
+                         <p class="text-gray-400 text-lg sm:text-xl mb-8 max-w-2xl mx-auto">get early access and be the first to know when we go live. follow our journey as we build the future of social media.</p>
+                         <a href="https://x.com/chirprdotxyz" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 transform hover:scale-105 btn-glow">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                                    <title>X.com Icon</title>
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                                <span>follow for updates on x</span>
+                            </a>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="relative z-20 mt-20 sm:mt-32" role="contentinfo">
+            <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-800 text-center">
+                <p class="text-gray-400 mb-6">&copy; <span id="year"></span> chirpr. all rights reserved.</p>
+                <nav aria-label="Social Links" class="flex justify-center gap-6">
+                    <a href="https://x.com/chirprdotxyz" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-400 transition-all p-2 hover:bg-blue-900/20 rounded-full hover:scale-110 hover:rotate-6">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                            <title>X.com</title>
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        <span class="sr-only">X.com</span>
+                    </a>
+                    <a href="https://x.com/chirprdotxyz" class="text-gray-500 hover:text-blue-400 transition-all p-2 hover:bg-blue-900/20 rounded-full hover:scale-110 hover:-rotate-6">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                            <title>Discord</title>
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm.097 4.5a.75.75 0 00-1.071-1.071l-5.25 5.25a.75.75 0 000 1.071l5.25 5.25a.75.75 0 101.071-1.071L8.828 12.75H16.5a.75.75 0 000-1.5H8.828l3.27-3.27z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Discord</span>
+                    </a>
+                    <a href="https://x.com/chirprdotxyz" class="text-gray-500 hover:text-blue-400 transition-all p-2 hover:bg-blue-900/20 rounded-full hover:scale-110 hover:rotate-6">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                            <title>Telegram</title>
+                            <path fill-rule="evenodd" d="M16.318 4.464a.75.75 0 01.256 1.04l-4.5 9.75a.75.75 0 01-1.348-.124l-1.08-3.242a.75.75 0 00-.546-.546l-3.242-1.08a.75.75 0 01-.124-1.348l9.75-4.5a.75.75 0 011.04.256zM6.331 16.331a.75.75 0 01-1.06 0l-1.72-1.72a.75.75 0 010-1.061l4.5-4.5a.75.75 0 011.06 1.06l-4.5 4.5z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Telegram</span>
+                    </a>
+                </nav>
+            </div>
+        </footer>
+    </div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const scrollElements = document.querySelectorAll(".animate-on-scroll");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            scrollElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            document.addEventListener('scroll', () => {
+                const y = window.scrollY * 0.15;
+                document.querySelector('.animated-grid-bg')
+                    .style.backgroundPosition = `-${y}px -${y}px`;
+            });
+            
+            const interactiveBg = document.getElementById('interactive-bg');
+            document.addEventListener('mousemove', (e) => {
+                if (window.innerWidth > 768) {  
+                    const mouseX = e.clientX / window.innerWidth;
+                    const mouseY = e.clientY / window.innerHeight;
+                    const moveX = mouseX * 20 - 10;  
+                    const moveY = mouseY * 20 - 10;  
+
+                    interactiveBg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                                        
+                    const intensity = 70 + mouseY * 20; 
+                    interactiveBg.style.maskImage = `radial-gradient(ellipse 100% 60% at 50% 50%, black, transparent ${intensity}%)`;
+                    interactiveBg.style.webkitMaskImage = `radial-gradient(ellipse 100% 60% at 50% 50%, black, transparent ${intensity}%)`;
+                }
+            });
+            
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
